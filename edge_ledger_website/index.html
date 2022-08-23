@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
@@ -13,13 +14,21 @@
     />
     <link rel="stylesheet" href="css/utilities.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/lightbox.min.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.5.0.min.js"
+      integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+      crossorigin="anonymous"
+    ></script>
     <title>Welcome To EdgeLedger</title>
   </head>
   <body id="home">
     <header class="hero">
-      <div id="navbar" class="navbar">
+      <div id="navbar" class="navbar top">
         <h1 class="logo">
-          <span class="text-primary"><i class="fas fa-book-open"></i> Edge </span> Ledger
+          <a href="#home"
+            ><span class="text-primary"><i class="fas fa-book-open"></i> Edge </span> Ledger</a
+          >
         </h1>
         <nav>
           <ul>
@@ -97,20 +106,76 @@
         </header>
         <div class="row">
           <div class="column">
-            <img src="images/cases/cases1.jpg" alt="" />
-            <img src="images/cases/cases2.jpg" alt="" />
+            <a
+              href="images/cases/cases1.jpg"
+              data-lightbox="cases"
+              data-title="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum eos harum quae mollitia officiis, autem, eveniet pariatur voluptates
+            quia numquam ratione magnam ex exercitationem amet?"
+            >
+              <img src="images/cases/cases1.jpg" alt="" />
+            </a>
+            <a
+              href="images/cases/cases2.jpg"
+              data-lightbox="cases"
+              data-title="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum eos harum quae mollitia officiis, autem, eveniet pariatur voluptates
+            quia numquam ratione magnam ex exercitationem amet?"
+            >
+              <img src="images/cases/cases2.jpg" alt="" />
+            </a>
           </div>
           <div class="column">
-            <img src="images/cases/cases3.jpg" alt="" />
-            <img src="images/cases/cases4.jpg" alt="" />
+            <a
+              href="images/cases/cases3.jpg"
+              data-lightbox="cases"
+              data-title="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum eos harum quae mollitia officiis, autem, eveniet pariatur voluptates
+            quia numquam ratione magnam ex exercitationem amet?"
+            >
+              <img src="images/cases/cases3.jpg" alt="" />
+            </a>
+            <a
+              href="images/cases/cases4.jpg"
+              data-lightbox="cases"
+              data-title="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum eos harum quae mollitia officiis, autem, eveniet pariatur voluptates
+            quia numquam ratione magnam ex exercitationem amet?"
+            >
+              <img src="images/cases/cases4.jpg" alt="" />
+            </a>
           </div>
           <div class="column">
-            <img src="images/cases/cases5.jpg" alt="" />
-            <img src="images/cases/cases6.jpg" alt="" />
+            <a
+              href="images/cases/cases5.jpg"
+              data-lightbox="cases"
+              data-title="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum eos harum quae mollitia officiis, autem, eveniet pariatur voluptates
+            quia numquam ratione magnam ex exercitationem amet?"
+            >
+              <img src="images/cases/cases5.jpg" alt=""
+            /></a>
+            <a
+              href="images/cases/cases6.jpg"
+              data-lightbox="cases"
+              data-title="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum eos harum quae mollitia officiis, autem, eveniet pariatur voluptates
+            quia numquam ratione magnam ex exercitationem amet?"
+            >
+              <img src="images/cases/cases6.jpg" alt=""
+            /></a>
           </div>
           <div class="column">
-            <img src="images/cases/cases7.jpg" alt="" />
-            <img src="images/cases/cases8.jpg" alt="" />
+            <a
+              href="images/cases/cases7.jpg"
+              data-lightbox="cases"
+              data-title="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum eos harum quae mollitia officiis, autem, eveniet pariatur voluptates
+            quia numquam ratione magnam ex exercitationem amet?"
+            >
+              <img src="images/cases/cases7.jpg" alt=""
+            /></a>
+            <a
+              href="images/cases/cases8.jpg"
+              data-lightbox="cases"
+              data-title="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum eos harum quae mollitia officiis, autem, eveniet pariatur voluptates
+            quia numquam ratione magnam ex exercitationem amet?"
+            >
+              <img src="images/cases/cases8.jpg" alt=""
+            /></a>
           </div>
         </div>
       </section>
@@ -130,7 +195,7 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dicta quos expedita quaerat. Ipsum illum fugit explicabo tempora corrupti
                 optio nihil id, sapiente, culpa alias labore aliquam vero expedita modi.
               </p>
-              <a href="#" class="btn btn-outline"><i class="fas fa-chevron"></i>Read More</a>
+              <a href="blog.html" class="btn btn-outline"><i class="fas fa-chevron"></i>Read More</a>
             </div>
           </div>
         </div>
@@ -211,5 +276,37 @@
       </div>
       <p>Copyright &copy; 2022 - EdgeLedger</p>
     </footer>
+    <script src="js/lightbox.min.js"></script>
+    <script>
+      const navbar = document.getElementById("navbar");
+      let scrolled = false;
+
+      window.onscroll = function () {
+        if (window.pageYOffset > 100) {
+          navbar.classList.remove("top");
+          if (!scrolled) {
+            navbar.style.transform = "translateY(-70px)";
+          }
+          setTimeout(function () {
+            navbar.style.transform = "translateY(0)";
+            scrolled = true;
+          }, 200);
+        } else {
+          navbar.classList.add("top");
+          scrolled = false;
+        }
+      };
+
+      // Smooth Scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
   </body>
 </html>
